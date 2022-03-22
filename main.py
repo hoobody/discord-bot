@@ -1,4 +1,9 @@
+from lib2to3.pgen2 import token
 import discord
+import sys
+
+tokenFile = open("token.txt")
+token = tokenFile.readline()
 
 client = discord.Client()
 
@@ -14,5 +19,6 @@ async def on_message(message):
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
 
-token = "OTU1NjMxMTk5NzE0NDQzMjk0.Yjke6A.bgvRD-EfcOK7y84iq6YICXFR9pg"
+
 client.run(token)
+tokenFile.close()
